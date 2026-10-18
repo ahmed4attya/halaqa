@@ -10,3 +10,7 @@ dist/
 .DS_Store
 Thumbs.db
 supabase/.temp/
+/.directory
+/HALAQA-*-AGENT-PROMPT.md
+/master-prompt-*.md
+/foundation-commit*.ps1
