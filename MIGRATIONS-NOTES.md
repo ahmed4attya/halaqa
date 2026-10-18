@@ -28,3 +28,9 @@
 | 00020_security_hardening_observatory.sql | تعزيز أمني وعزل للمرصد الفكري ومشغلاته | تحديث سياسات المحللين analysts_select و analysts_insert |
 | 00021_fix_public_series_read.sql | استعادة سياسة القراءة العامة للسلاسل للمستخدمين المصادقين | تحديث سياسة series_select_public |
 | 00022_enforce_observatory_url_schemes.sql | فرض قيود صارمة على مخططات عناوين URL (http/https فقط) في قاعدة البيانات | قيود فحص CHECK لمنع روابط javascript/data الخبيثة |
+| 00023_fix_series_rls.sql | تفعيل RLS على جدول series (إغلاق ثغرة F-RLS-01) وتوثيق تبعية امتدادات extensions (DEC-H013) | تمكين RLS على public.series (12/12 جدول مفعل) |
+
+## ملحق بيئة التشغيل (H2) — تدخلات خارج ملفات الترحيلات (موثقة هنا حصراً — لا تعديل على الموروث وفق H7)
+1. `ALTER DATABASE postgres SET search_path TO public, extensions;` — نُفِّذ قبل إتمام الدفع الأول؛ السبب: الاستضافة السحابية لـSupabase تثبّت امتدادات uuid-ossp/pgcrypto في مخطط `extensions` بينما الترحيلات الوراثية تستدعي دوالها غير مؤهلة. **إلزامي على أي مشروع Supabase جديد قبل أول `db push`.**
+2. دالة `public.rls_auto_enable()` (جسم فارغ BEGIN END) أُنشئت يدوياً لتجاوز `REVOKE` في 00008 على دالة غير معرفة في 00001–00007. نتيجة الفحص الحاسم (pg_proc + grep): في pg_proc الدالة معرّفة بـ (args: "", returns: void)؛ وفي شجرة الترحيلات لا يوجد أي تعريف لها إطلاقاً وتظهر فقط في الترحيل 00008 بالسطرين 11 و 45 (REVOKE EXECUTE). إذن الدالة تكميلية ولا تستبدل أي منطق أمني موروث.
+3. كلا التدخلين حالة بيئة حية موثقة هنا؛ لا أثر لهما في ملفات الترحيلات الوراثية.
