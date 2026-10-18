@@ -57,7 +57,13 @@ async function loadTopicDetails() {
       },
     }
 
-    comments.value = Array.isArray(rawContent.comments) ? rawContent.comments : []
+    // Load comments from dedicated community_comments table (Migration 00024)
+    const dbComments = await fetchComments(topicId.value)
+    if (dbComments && dbComments.length > 0) {
+      comments.value = dbComments
+    } else {
+      comments.value = Array.isArray(rawContent.comments) ? rawContent.comments : []
+    }
   } catch (err: any) {
     error.value = err.message || 'تعذر تحميل بيانات الموضوع'
   } finally {
@@ -79,7 +85,11 @@ async function onAddComment() {
   submittingComment.value = true
   error.value = ''
   try {
-    const newC = await addComment(topic.value.id, commentText.value.trim())
+    const newC = await addComment({
+      entityId: topic.value.id,
+      organizationId: topic.value.organization_id,
+      content: commentText.value.trim(),
+    })
     comments.value.push(newC)
     commentText.value = ''
     success.value = t('community.comment_added_success') || 'تم إضافة الرد بنجاح'

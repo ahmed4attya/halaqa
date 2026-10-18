@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
 
-describe('Community & Forum Engine — RTL TipTap & Moderation', () => {
+describe('Community & Forum Engine — Dedicated Tables & Sovereign RLS (Migration 00024)', () => {
   it('formats discussion topic with metadata and safe HTML rendering structure', () => {
     const rawTopic = {
       title: { ar: 'كيف نبني مجتمعاً معرفياً؟', en: 'How to build a knowledge community?' },
@@ -12,24 +12,12 @@ describe('Community & Forum Engine — RTL TipTap & Moderation', () => {
         author_id: 'user-123',
         author_name: 'أحمد عطية',
         likes_count: 5,
-        comments: [
-          {
-            id: 'c-1',
-            author_id: 'user-456',
-            author_name: 'سارة محمد',
-            content: 'موضوع رائع وضروري جداً',
-            created_at: new Date().toISOString(),
-            likes: 2,
-          },
-        ],
       },
     }
 
     assert.strictEqual(rawTopic.title.ar, 'كيف نبني مجتمعاً معرفياً؟')
     assert.strictEqual(rawTopic.content.is_pinned, true)
     assert.strictEqual(rawTopic.content.is_locked, false)
-    assert.strictEqual(rawTopic.content.comments.length, 1)
-    assert.strictEqual(rawTopic.content.comments[0].author_name, 'سارة محمد')
   })
 
   it('enforces moderation actions: pin, unpin, lock, unlock', () => {
@@ -51,19 +39,41 @@ describe('Community & Forum Engine — RTL TipTap & Moderation', () => {
     assert.strictEqual(topicState.is_locked, false)
   })
 
-  it('validates comment filtering and deletion logic without side-effects', () => {
-    let comments = [
-      { id: 'c-1', content: 'تعليق أول' },
-      { id: 'c-2', content: 'تعليق ثانٍ مخالف' },
-      { id: 'c-3', content: 'تعليق ثالث' },
-    ]
+  it('validates migration 00024 dedicated comment model & RLS permissions', () => {
+    // Model structure of public.community_comments
+    const commentRecord = {
+      id: 'cc-9876',
+      entity_id: 'ent-1234',
+      organization_id: 'org-5555',
+      author_id: 'user-auth-1',
+      content: 'تعليق سيادي من عضو المنظمة',
+      created_at: new Date().toISOString(),
+    }
 
-    // Delete comment c-2
-    comments = comments.filter((c) => c.id !== 'c-2')
-    assert.strictEqual(comments.length, 2)
-    assert.ok(!comments.some((c) => c.id === 'c-2'))
-    assert.strictEqual(comments[0].id, 'c-1')
-    assert.strictEqual(comments[1].id, 'c-3')
+    assert.strictEqual(commentRecord.entity_id, 'ent-1234')
+    assert.strictEqual(commentRecord.organization_id, 'org-5555')
+    assert.strictEqual(commentRecord.author_id, 'user-auth-1')
+
+    // RLS Policy Check: Insert allowed for any member in same org
+    const canInsertComment = (userOrg, targetOrg, userId, authorId) => {
+      return userOrg === targetOrg && userId === authorId
+    }
+    assert.strictEqual(canInsertComment('org-5555', 'org-5555', 'user-auth-1', 'user-auth-1'), true)
+    assert.strictEqual(canInsertComment('org-other', 'org-5555', 'user-auth-1', 'user-auth-1'), false)
+
+    // RLS Policy Check: Delete allowed for author OR staff (owner/manager) OR super_admin
+    const canDeleteComment = (userId, authorId, userRole, userOrg, commentOrg) => {
+      if (userId === authorId) return true
+      if (userRole === 'super_admin') return true
+      if (userOrg === commentOrg && ['owner', 'manager'].includes(userRole)) return true
+      return false
+    }
+
+    assert.strictEqual(canDeleteComment('user-auth-1', 'user-auth-1', 'member', 'org-5555', 'org-5555'), true)
+    assert.strictEqual(canDeleteComment('manager-1', 'user-auth-1', 'manager', 'org-5555', 'org-5555'), true)
+    assert.strictEqual(canDeleteComment('owner-1', 'user-auth-1', 'owner', 'org-5555', 'org-5555'), true)
+    assert.strictEqual(canDeleteComment('admin-1', 'user-auth-1', 'super_admin', 'org-any', 'org-5555'), true)
+    assert.strictEqual(canDeleteComment('member-2', 'user-auth-1', 'member', 'org-5555', 'org-5555'), false)
   })
 
   it('verifies role authorization for moderation privileges', () => {

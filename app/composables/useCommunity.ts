@@ -22,17 +22,17 @@ export interface CommunityTopic {
 
 export interface CommunityComment {
   id: string
-  topic_id: string
+  entity_id: string
+  organization_id: string
   author_id: string
-  author_name: string
+  author_name?: string
   content: string
   created_at: string
-  likes: number
 }
 
 export const useCommunity = () => {
-  const supabase = useSupabaseClient<Database>()
-  const { profile, isOwner, isManager, isSuperAdmin } = useUser()
+  const supabase = useSupabaseClient<any>()
+  const { profile, isOwner, isManager, isSuperAdmin, user } = useUser()
 
   const loading = ref(false)
   const error = ref<string | null>(null)
@@ -127,42 +127,44 @@ export const useCommunity = () => {
     }
   }
 
-  // Add comment to topic
-  const addComment = async (topicId: string, commentHtml: string) => {
+  // Fetch comments from dedicated community_comments table (Migration 00024)
+  const fetchComments = async (entityId: string): Promise<CommunityComment[]> => {
+    try {
+      const { data, error: err } = await supabase
+        .from('community_comments')
+        .select('*')
+        .eq('entity_id', entityId)
+        .order('created_at', { ascending: true })
+
+      if (err) throw err
+      return data || []
+    } catch (e: any) {
+      console.warn('[useCommunity] Fallback to legacy comments:', e.message)
+      return []
+    }
+  }
+
+  // Add comment directly into dedicated community_comments table with RLS
+  const addComment = async (payload: { entityId: string; organizationId: string; content: string }) => {
     loading.value = true
     error.value = null
     try {
-      const { data: topic, error: fetchErr } = await supabase
-        .from('entities')
-        .select('*')
-        .eq('id', topicId)
+      const currentUserId = user.value?.id
+      if (!currentUserId) throw new Error('يجب تسجيل الدخول لإضافة تعليق')
+
+      const { data, error: insertErr } = await supabase
+        .from('community_comments')
+        .insert({
+          entity_id: payload.entityId,
+          organization_id: payload.organizationId,
+          author_id: currentUserId,
+          content: payload.content,
+        })
+        .select()
         .single()
 
-      if (fetchErr) throw fetchErr
-
-      const contentObj = (topic.content as Record<string, any>) || {}
-      const existingComments = Array.isArray(contentObj.comments) ? contentObj.comments : []
-
-      const newComment: CommunityComment = {
-        id: crypto.randomUUID(),
-        topic_id: topicId,
-        author_id: profile.value?.id || '',
-        author_name: (profile.value?.full_name as any)?.ar || (profile.value?.full_name as any)?.en || 'عضو الحلقة',
-        content: commentHtml,
-        created_at: new Date().toISOString(),
-        likes: 0,
-      }
-
-      existingComments.push(newComment)
-      contentObj.comments = existingComments
-
-      const { error: updateErr } = await supabase
-        .from('entities')
-        .update({ content: contentObj as Json })
-        .eq('id', topicId)
-
-      if (updateErr) throw updateErr
-      return newComment
+      if (insertErr) throw insertErr
+      return data
     } catch (e: any) {
       error.value = e.message
       throw e
@@ -193,14 +195,9 @@ export const useCommunity = () => {
     if (delErr) throw delErr
   }
 
-  const deleteComment = async (topicId: string, commentId: string) => {
-    const { data: topic } = await supabase.from('entities').select('content').eq('id', topicId).single()
-    if (!topic) return
-    const content = (topic.content as Record<string, any>) || {}
-    if (Array.isArray(content.comments)) {
-      content.comments = content.comments.filter((c: any) => c.id !== commentId)
-      await supabase.from('entities').update({ content: content as Json }).eq('id', topicId)
-    }
+  const deleteComment = async (commentId: string) => {
+    const { error: delErr } = await supabase.from('community_comments').delete().eq('id', commentId)
+    if (delErr) throw delErr
   }
 
   return {
@@ -209,6 +206,7 @@ export const useCommunity = () => {
     canModerate,
     fetchTopics,
     createTopic,
+    fetchComments,
     addComment,
     togglePin,
     toggleLock,
