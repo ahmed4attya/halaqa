@@ -293,6 +293,67 @@ export interface Database {
           tokens_used?: number
         }
       }
+      series: {
+        Row: {
+          id: string
+          organization_id: string
+          branch_id: string
+          title: Json
+          description?: Json
+          cover_url?: string | null
+          is_active: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          organization_id: string
+          branch_id: string
+          title: Json
+          description?: Json
+          cover_url?: string | null
+          is_active?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          organization_id?: string
+          branch_id?: string
+          title?: Json
+          description?: Json
+          cover_url?: string | null
+          is_active?: boolean
+          created_at?: string
+        }
+      }
+      circle_invitations: {
+        Row: {
+          id: string
+          organization_id: string
+          email: string
+          role: UserRole
+          status: 'pending' | 'accepted' | 'expired'
+          created_at: string
+          expires_at: string
+        }
+        Insert: {
+          id?: string
+          organization_id: string
+          email: string
+          role?: UserRole
+          status?: 'pending' | 'accepted' | 'expired'
+          created_at?: string
+          expires_at?: string
+        }
+        Update: {
+          id?: string
+          organization_id?: string
+          email?: string
+          role?: UserRole
+          status?: 'pending' | 'accepted' | 'expired'
+          created_at?: string
+          expires_at?: string
+        }
+      }
     }
     Views: Record<string, never>
     Functions: {
