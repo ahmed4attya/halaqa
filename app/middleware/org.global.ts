@@ -7,7 +7,7 @@ function isPublicRoute(path: string) {
 export default defineNuxtRouteMiddleware(async (to, _from) => {
   const orgSlug = to.params.org_slug as string | undefined
 
-  if (isPublicRoute(to.path)) {
+  if (isPublicRoute(to.path) || to.path === '/sw.js' || to.path.startsWith('/workbox-') || to.path.includes('.')) {
     return
   }
 

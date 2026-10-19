@@ -325,13 +325,13 @@ async function handleResendOtp() {
           </div>
 
           <h1 class="text-3xl xl:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            {{ currentLocale === 'ar' ? 'منصتك المعرفية المستقلة تبدأ من هنا' : 'Your Sovereign Knowledge Hub Starts Here' }}
+            {{ currentLocale === 'ar' ? 'مساحتك الفكرية تبدأ من هنا' : 'Your Intellectual Space Starts Here' }}
           </h1>
 
           <p class="text-sm text-gray-400 leading-relaxed">
             {{ currentLocale === 'ar' 
-              ? 'صممت منظومة برهان للمراكز العلمية والجهات الفكرية التي تطلب أعلى درجات العزل المؤسسي، وإدارة السلاسل، والتأمين الشامل للبيانات.'
-              : 'Engineered for intellectual centers requiring strict multi-tenant isolation, structured learning series, and enterprise cryptographic boundaries.'
+              ? 'صُمم بُرهان للمراكز العلمية والجهات الفكرية التي تبحث عن مساحة خاصة بها، مستقلة وآمنة، لنشر ردودها وحواراتها وأرشيفها بكل ثقة.'
+              : 'Burhan is designed for scholarly centers and intellectual institutions seeking an independent, secure space to publish their work with confidence.'
             }}
           </p>
         </div>
@@ -343,8 +343,8 @@ async function handleResendOtp() {
               🏛️
             </div>
             <div>
-              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'عزل بيانات سيادي تام' : 'Sovereign Multi-Tenancy' }}</p>
-              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'قاعدة بيانات مستقلة الصلاحيات وسياسات RLS مؤمّنة' : 'Database-level Row Level Security and complete tenant segregation' }}</p>
+              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'بياناتك ملكك وحدك' : 'Your Data Belongs to You' }}</p>
+              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'مساحة منظمتك معزولة تماماً عن أي منظمة أخرى' : 'Your organization space is completely isolated and secure' }}</p>
             </div>
           </div>
 
@@ -353,8 +353,8 @@ async function handleResendOtp() {
               ⚡
             </div>
             <div>
-              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'تجهيز فوري ومسار آلي' : 'Instant Atomic Provisioning' }}</p>
-              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'تجهيز الفرع والمكتبة وتوثيق الهوية لحظياً بعد OTP' : 'Zero-delay branch setup, schema allocation, and onboarding' }}</p>
+              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'جاهزة خلال دقائق' : 'Ready in Minutes' }}</p>
+              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'أنشئ حسابك وابدأ نشر أول مادة فوراً' : 'Create your account and start publishing right away' }}</p>
             </div>
           </div>
 
@@ -363,8 +363,8 @@ async function handleResendOtp() {
               🛡️
             </div>
             <div>
-              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'ذكاء اصطناعي مشفر BYOK' : 'Zero-Knowledge Encrypted AI' }}</p>
-              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'تشفير AES-256-GCM للمفاتيح وحماية كاملة ضد SSRF' : 'AES-256-GCM encrypted credentials with strict egress validation' }}</p>
+              <p class="text-xs font-bold text-white">{{ currentLocale === 'ar' ? 'مساعد ذكي بمفتاحك الخاص' : 'Smart Assistant with Your Own Key' }}</p>
+              <p class="text-[11px] text-gray-400 mt-0.5">{{ currentLocale === 'ar' ? 'استفد من الذكاء الاصطناعي مع الحفاظ على سرية محتواك' : 'Leverage smart AI while keeping your content completely confidential' }}</p>
             </div>
           </div>
         </div>
@@ -372,7 +372,7 @@ async function handleResendOtp() {
         <!-- Trust footer line -->
         <div class="pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-gray-500 font-mono">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-          <span>{{ currentLocale === 'ar' ? 'نظام التسجيل الذري مؤمّن ومراقب' : 'Atomic Registration Gateway Protected' }}</span>
+          <span>{{ currentLocale === 'ar' ? 'تسجيلك آمن ومحمي في كل خطوة' : 'Secure registration protected at every step' }}</span>
         </div>
       </div>
 

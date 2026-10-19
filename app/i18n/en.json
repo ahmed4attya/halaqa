@@ -12,9 +12,9 @@
     "language": "العربية"
   },
   "hero": {
-    "badge": "Sovereign Workspace & Publishing Chassis • v2.0",
-    "title": "Censorship-Resistant Knowledge Workspace & Sovereign CMS",
-    "description": "A multi-tenant infrastructure enforcing 100% database-level isolation via PostgreSQL RLS, integrating decentralized AI inference and sovereign media delivery in a unified workspace."
+    "badge": "Burhan v2.0 — Safe & Independent Knowledge Spaces",
+    "title": "Publish your intellectual content in a space you truly own",
+    "description": "Burhan hosts multiple organizations, giving each a dedicated, secure hub. Publish your refutations, dialogues, and media archives, reaching your audience with helpful smart tools and fully protected data."
   },
   "hub": {
     "title": "Burhan",
@@ -29,8 +29,8 @@
     "cta_browse": "Start Browsing",
     "cta_learn": "Learn More",
     "orgs_title": "Registered Organizations",
-    "orgs_subtitle": "Discover content from all organizations on the platform",
-    "orgs_count": "{count} contents",
+    "orgs_subtitle": "Browse content from participating organizations: refutations, dialogues, and media libraries",
+    "orgs_count": "{count} entries so far",
     "loading_orgs": "Loading organizations...",
     "no_orgs": "No registered organizations yet"
   },
@@ -378,8 +378,8 @@
     "session_expired": "Session expired. Please log in again"
   },
   "footer": {
-    "brand_tagline": "v2.0 Sovereign",
-    "description": "A sovereign knowledge publishing chassis and decentralized AI workspace, engineered for 100% tenant data isolation and autonomous self-hosting.",
+    "brand_tagline": "Independent Platform",
+    "description": "An Arabic platform giving every institution and research center an independent and safe space to share scholarly and intellectual work.",
     "rights": "All rights reserved — Burhan Platform",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
@@ -506,16 +506,16 @@
       "meta_title": "About — Burhan",
       "meta_description": "Learn about Burhan: A multi-organization platform for intellectual refutations and scholarly dialogues",
       "title": "About Burhan Platform",
-      "intro": "Burhan is a multi-organization platform that aggregates intellectual refutations, scholarly dialogues, and media archives in one place. It provides an integrated environment for organizations and institutions to publish their intellectual and scholarly content and make it available to the public in an organized and accessible manner.",
+      "intro": "Burhan is an Arabic platform uniting intellectual centers and scholarly institutions in one place. It grants every entity an independent space to publish refutations, dialogues, and media archives — calmly, securely, and without overlap.",
       "mission_heading": "Our Mission",
-      "mission_body": "Empower organizations and intellectual institutions to easily publish and manage their scholarly and dialogical content, and provide a centralized platform that brings together researchers and enthusiasts of intellectual refutations and scholarly dialogues in one place.",
+      "mission_body": "To empower every intellectual and scholarly organization to own its digital space and reach its audience with modern publishing tools that respect its privacy and autonomy.",
       "vision_heading": "Our Vision",
-      "vision_body": "To be the leading platform in the Arab world for organized intellectual and scholarly content, and a meeting point for organizations and institutions to disseminate knowledge and intellectual production.",
+      "vision_body": "For Burhan to become the leading destination for Arab readers and researchers seeking credible intellectual and scholarly content from trusted sources.",
       "values_heading": "Our Values",
       "values_1": "Objectivity: We strive to present intellectual content with utmost objectivity and impartiality",
       "values_2": "Quality: We adhere to the highest standards of quality in content and presentation",
       "values_3": "Openness: We welcome all responsible intellectual organizations and institutions",
-      "values_4": "Innovation: We constantly seek to develop the platform with the latest technologies",
+      "values_4": "Continuous Evolution: We update the platform with modern tech to make reading and publishing simple and delightful",
       "values_5": "Transparency: We operate with full transparency with all our partners and users"
     },
     "privacy": {

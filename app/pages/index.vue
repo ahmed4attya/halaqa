@@ -427,23 +427,23 @@ function scrollToSection(id: string) {
                   <div>
                     <div class="flex items-center gap-2">
                       <span class="text-xs sm:text-sm font-bold text-white group-hover:text-gold transition-colors">
-                        {{ currentLocale === 'ar' ? 'منظومة أدوات آينوكس المجانية' : 'Ainux Client-Side Tools Hub' }}
+                        {{ currentLocale === 'ar' ? 'أدوات آينوكس المجانية' : 'Ainux Free Client Tools' }}
                       </span>
                       <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gold/20 text-gold border border-gold/30">
-                        57 Tools
+                        {{ currentLocale === 'ar' ? '57 أداة' : '57 Tools' }}
                       </span>
                     </div>
                     <p class="text-[11px] text-gray-400 mt-0.5">
                       {{ currentLocale === 'ar'
-                        ? 'تعديل PDF، إزالة الخلفيات، وتحويل الوسائط.. تعمل 100% داخل متصفحك بدون خوادم وبأعلى خصوصية'
-                        : 'PDF editing, background removal, media converters.. 100% client-side zero-server privacy'
+                        ? 'تعديل PDF، إزالة الخلفيات، وتحويل الوسائط.. تعمل في متصفحك مباشرة وبخصوصية تامة'
+                        : 'PDF editing, background removal, media converters.. runs directly in your browser with full privacy'
                       }}
                     </p>
                   </div>
                 </div>
 
                 <div class="shrink-0 hidden sm:flex items-center text-xs font-bold text-gold gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
-                  <span>{{ currentLocale === 'ar' ? 'تصفح الأدوات' : 'Open Tools' }}</span>
+                  <span>{{ currentLocale === 'ar' ? 'جرّب الأدوات' : 'Try Tools' }}</span>
                   <span>{{ currentLocale === 'ar' ? '←' : '→' }}</span>
                 </div>
               </div>
@@ -454,19 +454,19 @@ function scrollToSection(id: string) {
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-8 border-t border-white/5">
             <div class="glass backdrop-blur-md bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-center">
               <p class="text-xl sm:text-2xl font-bold gradient-gold">{{ organizations?.length || 0 }}</p>
-              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'منظمات نشطة' : 'Active Tenants' }}</p>
+              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'منظمة نشطة' : 'Active Organizations' }}</p>
             </div>
             <div class="glass backdrop-blur-md bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-center">
               <p class="text-xl sm:text-2xl font-bold text-white">{{ totalPublicContent }}</p>
-              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'مادة ومرجع موثق' : 'Published Entries' }}</p>
+              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'المواد المنشورة' : 'Published Entries' }}</p>
             </div>
             <div class="glass backdrop-blur-md bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-center">
               <p class="text-xl sm:text-2xl font-bold gradient-gold">100%</p>
-              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'عزل بيانات سيادي' : 'Isolated Multi-Tenancy' }}</p>
+              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'حماية كاملة للبيانات' : '100% Data Protection' }}</p>
             </div>
             <div class="glass backdrop-blur-md bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-center">
               <p class="text-xl sm:text-2xl font-bold text-emerald-400">DeAI</p>
-              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'ذكاء اصطناعي مشفر' : 'Encrypted BYOK AI' }}</p>
+              <p class="text-xs text-gray-400 mt-1">{{ currentLocale === 'ar' ? 'مساعد ذكي آمن' : 'Secure Smart Assistant' }}</p>
             </div>
           </div>
         </div>
@@ -608,7 +608,7 @@ function scrollToSection(id: string) {
                 <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
                   <div class="flex items-center gap-1.5 text-gray-400 font-mono text-[11px]">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
-                    <span>{{ currentLocale === 'ar' ? 'منصة معتمدة' : 'Verified' }}</span>
+                    <span>{{ currentLocale === 'ar' ? 'مساحة معتمدة' : 'Verified Space' }}</span>
                   </div>
 
                   <span class="inline-flex items-center gap-1 font-semibold text-gold group-hover:text-gold-300 transition-colors text-[11px]">
@@ -636,12 +636,12 @@ function scrollToSection(id: string) {
               <span>{{ currentLocale === 'ar' ? 'للمؤسسات والمراكز الفكرية' : 'For Institutions & Intellectual Centers' }}</span>
             </div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-              {{ currentLocale === 'ar' ? 'هل تدير منظومة معرفية أو فكرية؟' : 'Managing a Knowledge or Research Entity?' }}
+              {{ currentLocale === 'ar' ? 'هل تدير مركزاً أو مؤسسة فكرية؟' : 'Managing an Intellectual Center or Institution?' }}
             </h2>
             <p class="text-sm sm:text-base text-gray-400 leading-relaxed">
               {{ currentLocale === 'ar' 
-                ? 'انضم إلى شبكة برهان وأسّس مساحتك الرقمية المستقلة بأعلى معايير العزل والأمان والذكاء الاصطناعي السيادي.' 
-                : 'Join Burhan network to establish your independent digital hub backed by sovereign tenant isolation, BYOK encryption, and modern learning series.' 
+                ? 'أنشئ مساحتك الخاصة على بُرهان، وانشر إنتاجك العلمي والفكري في بيئة رقمية هادئة تحترم خصوصيتك.' 
+                : 'Create your private space on Burhan, and publish your scholarly and intellectual output in a serene digital environment that respects your privacy.' 
               }}
             </p>
           </div>
@@ -651,7 +651,7 @@ function scrollToSection(id: string) {
               to="/signup"
               class="cta-glow inline-flex items-center gap-2.5 font-bold transition-all duration-300 rounded-2xl px-8 py-4 text-base bg-gold text-onyx hover:bg-gold-500 active:bg-gold-600 shadow-xl shadow-gold/20"
             >
-              <span>{{ currentLocale === 'ar' ? 'ابدأ تأسيس منظمتك الآن' : 'Launch Your Platform' }}</span>
+              <span>{{ currentLocale === 'ar' ? 'أنشئ مساحتك الآن' : 'Create Your Space Now' }}</span>
               <span>{{ currentLocale === 'ar' ? '←' : '→' }}</span>
             </NuxtLink>
             <NuxtLink
