@@ -43,8 +43,8 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     includeAssets: ['favicon.webp', 'loader.webp'],
     manifest: {
-      name: 'بُرهان',
-      short_name: 'بُرهان',
+      name: 'أحمد جابر عطية',
+      short_name: 'عطية',
       description: 'منصة الردود الفكرية والحوارات العلمية',
       theme_color: '#0a0a0a',
       background_color: '#0a0a0a',

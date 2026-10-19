@@ -8,12 +8,12 @@ useHead({
     lang: locale,
   },
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | بُرهان` : 'بُرهان — Intellectual Refutations Platform'
+    return titleChunk ? `${titleChunk} | أحمد جابر عطية` : 'أحمد جابر عطية — Intellectual Refutations Platform'
   },
   meta: [
     { name: 'description', content: 'Multi-tenant platform for intellectual refutations, scholarly dialogues, and media archive' },
     { name: 'theme-color', content: '#0a0a0a' },
-    { property: 'og:site_name', content: 'بُرهان' },
+    { property: 'og:site_name', content: 'أحمد جابر عطية' },
     { property: 'og:type', content: 'website' },
   ],
   link: [

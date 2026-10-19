@@ -142,7 +142,7 @@ function contentTypeLabel(): string {
             to="/"
             class="text-xl font-bold gradient-gold whitespace-nowrap hover:opacity-80 transition-opacity shrink-0"
           >
-            بُرهان
+            {{ $t('brand.name') }}
           </NuxtLink>
           <svg class="w-4 h-4 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path v-if="currentLocale === 'ar'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

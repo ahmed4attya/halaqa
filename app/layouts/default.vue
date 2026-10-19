@@ -41,7 +41,7 @@ function closeMenu() {
         <div class="flex items-center gap-3">
           <NuxtLink to="/" class="group flex items-center gap-3 focus:outline-none" :aria-label="$t('brand.name')">
             <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl p-0.5 bg-gradient-to-br from-gold/30 via-white/10 to-transparent border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:border-gold/50 shadow-md shadow-black/50">
-              <img src="/loader.webp" class="h-8 sm:h-9 w-auto object-contain" alt="برهان" />
+              <img src="/loader.webp" class="h-8 sm:h-9 w-auto object-contain" :alt="$t('brand.name')" />
             </div>
             <div class="flex flex-col">
               <div class="flex items-center gap-2">
@@ -279,7 +279,7 @@ function closeMenu() {
           <div class="lg:col-span-5 space-y-4">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-2xl p-0.5 bg-gradient-to-br from-gold/30 via-white/10 to-transparent border border-white/10 flex items-center justify-center overflow-hidden shadow-md">
-                <img src="/loader.webp" class="h-8 w-auto object-contain" alt="برهان" />
+                <img src="/loader.webp" class="h-8 w-auto object-contain" :alt="$t('brand.name')" />
               </div>
               <div>
                 <span class="text-lg font-black tracking-tight gradient-gold">{{ $t('brand.name') }}</span>

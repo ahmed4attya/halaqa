@@ -518,7 +518,7 @@ function scrollToCurriculum() {
             <div class="flex items-center gap-2 pt-2">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span class="text-xs font-mono text-gray-400">
-                Burhan Cloud Node • <span class="text-emerald-400 font-semibold">Active & Sovereign</span>
+                Ahmed Gaber Attia Cloud Node • <span class="text-emerald-400 font-semibold">Active & Sovereign</span>
               </span>
             </div>
           </div>
@@ -536,7 +536,7 @@ function scrollToCurriculum() {
                 <NuxtLink :to="`/${orgSlugParam}`" class="hover:text-gold transition-colors">{{ displayOrgName }}</NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/about" class="hover:text-gold transition-colors">{{ $t('nav.about') || 'عن بُرهان' }}</NuxtLink>
+                <NuxtLink to="/about" class="hover:text-gold transition-colors">{{ $t('nav.about') || 'عن المنصة' }}</NuxtLink>
               </li>
               <li>
                 <NuxtLink to="/observatory" class="hover:text-gold transition-colors">{{ $t('observatory.title') || 'مرصد السيادة' }}</NuxtLink>

@@ -4,10 +4,15 @@ function isPublicRoute(path: string) {
   return PUBLIC_ROUTES.some(route => path.startsWith(route))
 }
 
+const INFRA_PREFIX_RE = /^\/(_nuxt|_ipx|icons?|images?|assets)\//
+const INFRA_FILES_RE = /^\/(sw\.js|manifest\.[^/]+|favicon\.[^/]+|robots\.txt|sitemap[^/]*)$/
+
 export default defineNuxtRouteMiddleware(async (to, _from) => {
+  if (INFRA_PREFIX_RE.test(to.path) || INFRA_FILES_RE.test(to.path)) return
+
   const orgSlug = to.params.org_slug as string | undefined
 
-  if (isPublicRoute(to.path) || to.path === '/sw.js' || to.path.startsWith('/workbox-') || to.path.includes('.')) {
+  if (isPublicRoute(to.path)) {
     return
   }
 
@@ -52,7 +57,7 @@ export default defineNuxtRouteMiddleware(async (to, _from) => {
 
     throw createError({
       statusCode: 404,
-      statusMessage: $i18n.t('common.org_not_found'),
+      message: $i18n.t('common.org_not_found'),
       fatal: true,
     })
   }

@@ -15,7 +15,7 @@ onMounted(() => {
       <div class="flex flex-col items-center gap-6 animate-fade-in">
         <img
           src="/loader.webp"
-          alt="Burhan"
+          alt="Ahmed Gaber Attia"
           class="w-20 h-20 sm:w-24 sm:h-24"
           style="animation: pulseGlow 2s ease-in-out infinite"
         />

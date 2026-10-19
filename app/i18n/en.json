@@ -12,12 +12,12 @@
     "language": "العربية"
   },
   "hero": {
-    "badge": "Burhan v2.0 — Safe & Independent Knowledge Spaces",
+    "badge": "Ahmed Gaber Attia v2.0 — Safe & Independent Knowledge Spaces",
     "title": "Publish your intellectual content in a space you truly own",
-    "description": "Burhan hosts multiple organizations, giving each a dedicated, secure hub. Publish your refutations, dialogues, and media archives, reaching your audience with helpful smart tools and fully protected data."
+    "description": "Ahmed Gaber Attia platform hosts multiple organizations, giving each a dedicated, secure hub. Publish your refutations, dialogues, and media archives, reaching your audience with helpful smart tools and fully protected data."
   },
   "hub": {
-    "title": "Burhan",
+    "title": "Ahmed Gaber Attia",
     "subtitle": "Intellectual Refutations & Scholarly Dialogues Platform",
     "browse_orgs": "Browse Organizations",
     "featured": "Featured Content",
@@ -35,7 +35,7 @@
     "no_orgs": "No registered organizations yet"
   },
   "brand": {
-    "name": "Burhan",
+    "name": "Ahmed Gaber Attia",
     "tagline": "Intellectual Refutations & Scholarly Dialogues Platform"
   },
   "layout": {
@@ -380,7 +380,7 @@
   "footer": {
     "brand_tagline": "Independent Platform",
     "description": "An Arabic platform giving every institution and research center an independent and safe space to share scholarly and intellectual work.",
-    "rights": "All rights reserved — Burhan Platform",
+    "rights": "© 2026 Ahmed Gaber Attia. All rights reserved.",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "contact": "Contact Us",
@@ -396,13 +396,13 @@
     "branch_desc": "No content has been added to this branch yet"
   },
   "seo": {
-    "default_title": "Burhan — Intellectual Refutations & Scholarly Dialogues Platform",
+    "default_title": "Ahmed Gaber Attia — Intellectual Refutations & Scholarly Dialogues Platform",
     "default_description": "A multi-organization platform aggregating intellectual refutations, scholarly dialogues, and media archives in one place",
-    "hub_title": "Burhan — Main Hub",
-    "hub_description": "Browse the latest public content from all organizations on Burhan",
-    "org_title": "{name} — Organization on Burhan",
-    "org_description": "Browse content and branches of {name} on Burhan",
-    "branch_title": "{branch} — {org} | Burhan",
+    "hub_title": "Ahmed Gaber Attia — Main Hub",
+    "hub_description": "Browse the latest public content from all organizations on Ahmed Gaber Attia platform",
+    "org_title": "{name} — Organization on Ahmed Gaber Attia",
+    "org_description": "Browse content and branches of {name} on Ahmed Gaber Attia",
+    "branch_title": "{branch} — {org} | Ahmed Gaber Attia",
     "branch_description": "Browse content in the {branch} branch of {org}"
   },
   "observatory": {
@@ -503,14 +503,14 @@
   },
   "legal": {
     "about": {
-      "meta_title": "About — Burhan",
-      "meta_description": "Learn about Burhan: A multi-organization platform for intellectual refutations and scholarly dialogues",
-      "title": "About Burhan Platform",
-      "intro": "Burhan is an Arabic platform uniting intellectual centers and scholarly institutions in one place. It grants every entity an independent space to publish refutations, dialogues, and media archives — calmly, securely, and without overlap.",
+      "meta_title": "About — Ahmed Gaber Attia",
+      "meta_description": "Learn about Ahmed Gaber Attia platform: A multi-organization platform for intellectual refutations and scholarly dialogues",
+      "title": "About Ahmed Gaber Attia Platform",
+      "intro": "Ahmed Gaber Attia platform is an Arabic platform uniting intellectual centers and scholarly institutions in one place. It grants every entity an independent space to publish refutations, dialogues, and media archives — calmly, securely, and without overlap.",
       "mission_heading": "Our Mission",
       "mission_body": "To empower every intellectual and scholarly organization to own its digital space and reach its audience with modern publishing tools that respect its privacy and autonomy.",
       "vision_heading": "Our Vision",
-      "vision_body": "For Burhan to become the leading destination for Arab readers and researchers seeking credible intellectual and scholarly content from trusted sources.",
+      "vision_body": "For Ahmed Gaber Attia platform to become the leading destination for Arab readers and researchers seeking credible intellectual and scholarly content from trusted sources.",
       "values_heading": "Our Values",
       "values_1": "Objectivity: We strive to present intellectual content with utmost objectivity and impartiality",
       "values_2": "Quality: We adhere to the highest standards of quality in content and presentation",
@@ -523,7 +523,7 @@
       "meta_description": "HALAQA Privacy Policy compliant with Saudi Personal Data Protection Law (PDPL) and data hosting disclosures.",
       "title": "Privacy Policy & Sovereign Data Protection",
       "last_updated": "Last Updated: October 2026 — PDPL Compliant",
-      "intro": "At Burhan, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use the platform.",
+      "intro": "At Ahmed Gaber Attia platform, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use the platform.",
       "s1_heading": "Information We Collect",
       "s1_body": "When you create an account on the platform, we may collect the following information: full name, email address, organization name (if you represent an organization), and profile picture. We may also collect additional information such as content preferences and language settings.",
       "s2_heading": "How We Use Your Information",
@@ -540,33 +540,33 @@
       "s7_body": "We may update this Privacy Policy from time to time. We will notify you of any material changes via email or through a notice on the platform."
     },
     "terms": {
-      "meta_title": "Terms & Conditions — Burhan",
-      "meta_description": "Terms and Conditions for using Burhan Platform — Please read before using the platform",
+      "meta_title": "Terms & Conditions — Ahmed Gaber Attia",
+      "meta_description": "Terms and Conditions for using Ahmed Gaber Attia Platform — Please read before using the platform",
       "title": "Terms & Conditions",
       "last_updated": "Last updated: May 2026",
-      "intro": "Please read these Terms & Conditions carefully before using Burhan Platform. By using the platform, you agree to be bound by these terms.",
+      "intro": "Please read these Terms & Conditions carefully before using Ahmed Gaber Attia Platform. By using the platform, you agree to be bound by these terms.",
       "s1_heading": "Acceptance of Terms",
-      "s1_body": "By using Burhan Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use the platform.",
+      "s1_body": "By using Ahmed Gaber Attia Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use the platform.",
       "s2_heading": "User Accounts",
       "s2_body": "To create an account on the platform, you must be at least 18 years old or have parental consent. You are responsible for maintaining the confidentiality of your account information and password. You must notify us immediately of any unauthorized use of your account.",
       "s3_heading": "Content",
-      "s3_body": "Registered organizations are solely responsible for the content they publish. Burhan Platform is not responsible for the accuracy or legality of content published by organizations. Platform administration reserves the right to remove any content that violates the terms or applicable laws.",
+      "s3_body": "Registered organizations are solely responsible for the content they publish. Ahmed Gaber Attia Platform is not responsible for the accuracy or legality of content published by organizations. Platform administration reserves the right to remove any content that violates the terms or applicable laws.",
       "s4_heading": "Intellectual Property",
-      "s4_body": "Content published on the platform remains the property of the publishing organization. Burhan Platform does not claim ownership of published content. All trademarks and logos are the property of their respective owners.",
+      "s4_body": "Content published on the platform remains the property of the publishing organization. Ahmed Gaber Attia Platform does not claim ownership of published content. All trademarks and logos are the property of their respective owners.",
       "s5_heading": "Acceptable Use",
       "s5_body": "You agree not to use the platform for any unlawful purpose or in violation of these terms. This includes, but is not limited to: publishing offensive or defamatory content, attempting to breach platform security, using the platform to send spam, or collecting user data without their consent.",
       "s6_heading": "Premium Services",
       "s6_body": "The platform may offer premium content or services for a fee. These services are subject to additional terms that will be communicated to you at the time of subscription. All payments are non-refundable except as required by applicable law.",
       "s7_heading": "Limitation of Liability",
-      "s7_body": "The platform is provided as is without any express or implied warranties. Burhan Platform is not liable for any direct or indirect damages resulting from the use or inability to use the platform.",
+      "s7_body": "The platform is provided as is without any express or implied warranties. Ahmed Gaber Attia Platform is not liable for any direct or indirect damages resulting from the use or inability to use the platform.",
       "s8_heading": "Account Termination",
       "s8_body": "We reserve the right to suspend or terminate your account if you violate these terms or applicable laws. You may terminate your account at any time through account settings or by contacting us.",
       "s9_heading": "Governing Law",
       "s9_body": "These Terms & Conditions shall be governed by and construed in accordance with the laws of the Arab Republic of Egypt. Any disputes shall be subject to the jurisdiction of the competent courts."
     },
     "contact": {
-      "meta_title": "Contact Us — Burhan",
-      "meta_description": "Get in touch with the Burhan team — inquiries, suggestions, and support",
+      "meta_title": "Contact Us — Ahmed Gaber Attia",
+      "meta_description": "Get in touch with the Ahmed Gaber Attia platform team — inquiries, suggestions, and support",
       "title": "Contact Us",
       "subtitle": "We are here to answer your questions and help you",
       "email_label": "Email",

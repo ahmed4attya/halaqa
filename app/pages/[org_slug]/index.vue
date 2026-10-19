@@ -1009,7 +1009,7 @@ const speedDialItems = computed(() => [
                     <span>{{ entityDate(entity) }}</span>
                     <span class="flex items-center gap-1 text-gray-600">
                       <span class="w-3.5 h-3.5 rounded-full bg-gold/20 flex items-center justify-center text-[7px] font-bold text-gold">{{ orgInitial() }}</span>
-                      <span>برهان</span>
+                      <span>{{ orgName() }}</span>
                     </span>
                   </div>
                 </div>
@@ -1098,8 +1098,8 @@ const speedDialItems = computed(() => [
 
             <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
               {{ currentLocale === 'ar'
-                ? 'بوابة علمية معرفية مستقلة، تدار ضمن البنية التحتية السيادية لمنصة برهان مع ضمان العزل التام للبيانات وأعلى معايير الأمان المؤسسي.'
-                : 'A sovereign intellectual portal operating within Burhan Cloud infrastructure, guaranteeing isolated tenancy and cryptographic privacy.'
+                ? 'بوابة علمية معرفية مستقلة، تدار ضمن البنية التحتية لمنصة أحمد جابر عطية مع ضمان العزل التام للبيانات وأعلى معايير الأمان المؤسسي.'
+                : 'A sovereign intellectual portal operating within Ahmed Gaber Attia Cloud infrastructure, guaranteeing isolated tenancy and cryptographic privacy.'
               }}
             </p>
 
@@ -1139,10 +1139,10 @@ const speedDialItems = computed(() => [
             </ul>
           </div>
 
-          <!-- Column 3: Burhan Network & Governance (2 cols) -->
+          <!-- Column 3: Network & Governance (2 cols) -->
           <div class="lg:col-span-2 space-y-3">
             <p class="text-xs font-bold text-white uppercase tracking-wider">
-              {{ currentLocale === 'ar' ? 'شبكة برهان' : 'Burhan Network' }}
+              {{ currentLocale === 'ar' ? 'شبكة أحمد جابر عطية' : 'Ahmed Gaber Attia Network' }}
             </p>
             <ul class="space-y-2.5 text-xs text-gray-400">
               <li>
@@ -1228,7 +1228,7 @@ const speedDialItems = computed(() => [
             </span>
           </div>
           <p class="text-[11px] font-mono text-gray-600 text-center">
-            Powered by Burhan Cloud v2.0 &bull; 100% Isolated Sovereign Node
+            Powered by Ahmed Gaber Attia Cloud v2.0 &bull; 100% Isolated Sovereign Node
           </p>
         </div>
       </div>

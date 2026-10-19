@@ -321,7 +321,7 @@ async function handleResendOtp() {
           <!-- Brand Badge -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass bg-white/[0.03] border border-white/10 shadow-sm mb-6">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span class="text-xs text-gold font-mono uppercase tracking-wider">Burhan Cloud v2.0</span>
+            <span class="text-xs text-gold font-mono uppercase tracking-wider">Ahmed Gaber Attia Cloud v2.0</span>
           </div>
 
           <h1 class="text-3xl xl:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
@@ -330,8 +330,8 @@ async function handleResendOtp() {
 
           <p class="text-sm text-gray-400 leading-relaxed">
             {{ currentLocale === 'ar' 
-              ? 'صُمم بُرهان للمراكز العلمية والجهات الفكرية التي تبحث عن مساحة خاصة بها، مستقلة وآمنة، لنشر ردودها وحواراتها وأرشيفها بكل ثقة.'
-              : 'Burhan is designed for scholarly centers and intellectual institutions seeking an independent, secure space to publish their work with confidence.'
+              ? 'صُممت منصة أحمد جابر عطية للمراكز العلمية والجهات الفكرية التي تبحث عن مساحة خاصة بها، مستقلة وآمنة، لنشر ردودها وحواراتها وأرشيفها بكل ثقة.'
+              : 'Ahmed Gaber Attia platform is designed for scholarly centers and intellectual institutions seeking an independent, secure space to publish their work with confidence.'
             }}
           </p>
         </div>

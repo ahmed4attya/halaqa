@@ -640,8 +640,8 @@ function scrollToSection(id: string) {
             </h2>
             <p class="text-sm sm:text-base text-gray-400 leading-relaxed">
               {{ currentLocale === 'ar' 
-                ? 'أنشئ مساحتك الخاصة على بُرهان، وانشر إنتاجك العلمي والفكري في بيئة رقمية هادئة تحترم خصوصيتك.' 
-                : 'Create your private space on Burhan, and publish your scholarly and intellectual output in a serene digital environment that respects your privacy.' 
+                ? 'أنشئ مساحتك الخاصة على منصة أحمد جابر عطية، وانشر إنتاجك العلمي والفكري في بيئة رقمية هادئة تحترم خصوصيتك.' 
+                : 'Create your private space on Ahmed Gaber Attia platform, and publish your scholarly and intellectual output in a serene digital environment that respects your privacy.' 
               }}
             </p>
           </div>
@@ -689,7 +689,7 @@ function scrollToSection(id: string) {
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span class="text-xs font-mono text-gray-400">
-                {{ currentLocale === 'ar' ? 'جميع أنظمة برهان تعمل بكفاءة' : 'All Systems Operational' }}
+                {{ currentLocale === 'ar' ? 'جميع أنظمة أحمد جابر عطية تعمل بكفاءة' : 'All Systems Operational' }}
               </span>
             </div>
           </div>
