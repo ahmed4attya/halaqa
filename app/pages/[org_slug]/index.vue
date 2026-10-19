@@ -17,9 +17,31 @@ const displayOrgName = computed(() => localizedValue(orgName.value, currentLocal
 const displayOrgNameEn = computed(() => localizedValue(orgName.value, 'en'))
 
 const pageTitle = computed(() => displayOrgName.value || t('tenant.org_not_found_title'))
+const orgTagline = computed(() => getTagline())
+const orgLogoUrl = computed(() => orgLogo() || '/pwa/icon-512.png')
+const orgAccentColor = computed(() => getAccentColor())
 
 useHead({
   title: pageTitle,
+  style: computed(() => [
+    {
+      children: `:root { --org-accent: ${orgAccentColor.value}; }`,
+    },
+  ]),
+})
+
+useSeoMeta({
+  title: pageTitle,
+  ogTitle: pageTitle,
+  description: computed(() => orgTagline.value || t('tenant.welcome', { name: displayOrgName.value })),
+  ogDescription: computed(() => orgTagline.value || t('tenant.welcome', { name: displayOrgName.value })),
+  ogType: 'website',
+  ogSiteName: computed(() => t('brand.name')),
+  ogImage: orgLogoUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: pageTitle,
+  twitterDescription: computed(() => orgTagline.value || t('tenant.welcome', { name: displayOrgName.value })),
+  twitterImage: orgLogoUrl,
 })
 
 watch(
@@ -150,15 +172,39 @@ function entityDate(entity: Entity): string {
 }
 
 function orgLogo(): string | null {
-  if (!org.value?.settings) return null
+  if (!org.value) return null
+  const anyOrg = org.value as any
+  if (anyOrg.logo_url) return anyOrg.logo_url
+  if (!org.value.settings) return null
   const s = typeof org.value.settings === 'string' ? JSON.parse(org.value.settings) : org.value.settings
   return s?.logos?.dark || s?.logos?.light || null
 }
 
 function getTagline(): string {
-  if (!org.value?.settings) return ''
+  if (!org.value) return ''
+  const anyOrg = org.value as any
+  if (anyOrg.tagline) return anyOrg.tagline
+  if (!org.value.settings) return ''
   const s = typeof org.value.settings === 'string' ? JSON.parse(org.value.settings) : org.value.settings
   return extractLocalized<string>(s?.description) ?? ''
+}
+
+function getAccentColor(): string {
+  if (!org.value) return '#D4AF37'
+  const anyOrg = org.value as any
+  if (anyOrg.accent_color) return anyOrg.accent_color
+  if (!org.value.settings) return '#D4AF37'
+  const s = typeof org.value.settings === 'string' ? JSON.parse(org.value.settings) : org.value.settings
+  return s?.colors?.primary || '#D4AF37'
+}
+
+function getWebsiteUrl(): string | null {
+  if (!org.value) return null
+  const anyOrg = org.value as any
+  if (anyOrg.website_url) return anyOrg.website_url
+  if (!org.value.settings) return null
+  const s = typeof org.value.settings === 'string' ? JSON.parse(org.value.settings) : org.value.settings
+  return s?.website_url || s?.branding?.website || null
 }
 
 function orgInitial(): string {
@@ -678,14 +724,30 @@ const speedDialItems = computed(() => [
                 >
                   {{ $t('tenant.about_org') }}
                 </button>
+                <a
+                  v-if="getWebsiteUrl()"
+                  :href="getWebsiteUrl()!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 font-medium transition-all duration-200 rounded-xl px-4 py-3 text-sm glass bg-white/5 hover:bg-white/10 text-gold hover:text-gold-300 border border-gold/20 cursor-pointer"
+                >
+                  <span>{{ $t('tenant.website_link') }}</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </div>
 
             <!-- Tagline / Bio Strip -->
-            <div v-if="getTagline()" class="px-6 sm:px-10 pb-6 pt-2 border-t border-white/5">
+            <div v-if="getTagline()" class="px-6 sm:px-10 pb-6 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
               <p class="text-sm text-gray-300 leading-relaxed max-w-3xl">
                 {{ getTagline() }}
               </p>
+              <div v-if="getAccentColor() !== '#D4AF37'" class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full" :style="{ backgroundColor: getAccentColor() }" />
+                <span class="text-[11px] font-mono text-gray-400">{{ getAccentColor() }}</span>
+              </div>
             </div>
           </div>
 
@@ -907,11 +969,14 @@ const speedDialItems = computed(() => [
             <!-- Series empty -->
             <div v-else-if="!seriesLoading" class="text-center py-12">
               <GlassCard>
-                <div class="py-6">
-                  <svg class="w-10 h-10 text-gray-600 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                  <p class="text-gray-500">{{ $t('empty.org_desc') }}</p>
+                <div class="py-8 px-4 flex flex-col items-center max-w-md mx-auto">
+                  <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold mb-4 shadow-lg">
+                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <h4 class="text-base font-bold text-white mb-1.5">{{ $t('tenant.empty_series') }}</h4>
+                  <p class="text-xs text-gray-400 leading-relaxed">{{ $t('empty.org_desc') }}</p>
                 </div>
               </GlassCard>
             </div>

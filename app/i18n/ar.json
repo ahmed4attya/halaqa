@@ -64,7 +64,10 @@
     "org_entities_count": "{count} دورة",
     "nav_home": "الرئيسية",
     "nav_about": "عن المنظمة",
-    "nav_content": "المحتوى"
+    "nav_content": "المحتوى",
+    "empty_series": "قريباً — أول السلاسل والمواد المعرفية قيد التحضير والإنتاج",
+    "verified_badge": "جهة معرفية معتمدة",
+    "website_link": "الموقع الرسمي"
   },
   "org_header": {
     "home_link": "الصفحة الرئيسية للمنظمة",

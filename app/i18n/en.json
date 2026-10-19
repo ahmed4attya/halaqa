@@ -64,7 +64,10 @@
     "org_entities_count": "{count} courses",
     "nav_home": "Home",
     "nav_about": "About",
-    "nav_content": "Content"
+    "nav_content": "Content",
+    "empty_series": "Coming soon — First series and educational materials are in preparation",
+    "verified_badge": "Verified Knowledge Center",
+    "website_link": "Official Website"
   },
   "org_header": {
     "home_link": "Organization home page",
