@@ -27,8 +27,37 @@ const pageTitle = computed(() => {
   return title[locale.value] || title.ar || title.en || ''
 })
 
+const entityThumbnailUrl = computed(() => {
+  if (!entity.value) return '/pwa/icon-512.png'
+  if (entity.value.content_type === 'video' && entity.value.video_id) {
+    return `https://img.youtube.com/vi/${entity.value.video_id}/hqdefault.jpg`
+  }
+  const content = entity.value.content as { image_url?: string } | null
+  return content?.image_url || '/pwa/icon-512.png'
+})
+
+const entityDescription = computed(() => {
+  if (!entity.value) return ''
+  const content = entity.value.content as { excerpt?: string; summary?: string } | null
+  return content?.excerpt || content?.summary || pageTitle.value
+})
+
 useHead({
   title: pageTitle,
+})
+
+useSeoMeta({
+  title: pageTitle,
+  ogTitle: pageTitle,
+  description: entityDescription,
+  ogDescription: entityDescription,
+  ogType: 'article',
+  ogSiteName: computed(() => t('brand.name')),
+  ogImage: entityThumbnailUrl,
+  twitterCard: 'summary_large_image',
+  twitterTitle: pageTitle,
+  twitterDescription: entityDescription,
+  twitterImage: entityThumbnailUrl,
 })
 
 async function fetchData() {

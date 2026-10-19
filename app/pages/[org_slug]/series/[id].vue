@@ -28,8 +28,32 @@ const pageTitle = computed(() => {
   return title[locale.value] || title.ar || title.en || ''
 })
 
+const seriesDescriptionText = computed(() => {
+  if (!series.value?.description) return ''
+  const desc = series.value.description as Record<string, string>
+  return desc[locale.value] || desc.ar || desc.en || ''
+})
+
+const seriesCover = computed(() => {
+  return series.value?.cover_url || '/pwa/icon-512.png'
+})
+
 useHead({
   title: pageTitle,
+})
+
+useSeoMeta({
+  title: pageTitle,
+  ogTitle: pageTitle,
+  description: computed(() => seriesDescriptionText.value || pageTitle.value),
+  ogDescription: computed(() => seriesDescriptionText.value || pageTitle.value),
+  ogType: 'article',
+  ogSiteName: computed(() => t('brand.name')),
+  ogImage: seriesCover,
+  twitterCard: 'summary_large_image',
+  twitterTitle: pageTitle,
+  twitterDescription: computed(() => seriesDescriptionText.value || pageTitle.value),
+  twitterImage: seriesCover,
 })
 
 async function fetchData() {
